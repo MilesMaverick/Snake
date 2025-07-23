@@ -1,5 +1,6 @@
 import pygame, sys, random
 pygame.init()
+FONT = pygame.font.SysFont(None, 32)
 CELL=20; WIDTH=30; HEIGHT=20
 screen=pygame.display.set_mode((WIDTH*CELL, HEIGHT*CELL))
 clock=pygame.time.Clock()
@@ -30,8 +31,6 @@ while True:
     screen.fill("black")
     for x,y in snake: pygame.draw.rect(screen,"green",(x*CELL,y*CELL,CELL,CELL))
     fx,fy=food; pygame.draw.rect(screen,"red",(fx*CELL,fy*CELL,CELL,CELL))
+    score_surf = FONT.render(f"Score: {len(snake)-1}", True, "white")
+    screen.blit(score_surf, (5, 5))
     pygame.display.flip(); clock.tick(10)
-
-FONT = pygame.font.SysFont(None, 32)
-score_surf = FONT.render(f"Score: {len(snake)-1}", True, "white")
-screen.blit(score_surf, (5, 5))
