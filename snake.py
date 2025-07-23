@@ -31,3 +31,7 @@ while True:
     for x,y in snake: pygame.draw.rect(screen,"green",(x*CELL,y*CELL,CELL,CELL))
     fx,fy=food; pygame.draw.rect(screen,"red",(fx*CELL,fy*CELL,CELL,CELL))
     pygame.display.flip(); clock.tick(10)
+
+FONT = pygame.font.SysFont(None, 32)
+score_surf = FONT.render(f"Score: {len(snake)-1}", True, "white")
+screen.blit(score_surf, (5, 5))
